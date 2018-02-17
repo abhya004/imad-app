@@ -4,12 +4,55 @@ var path = require('path');
 
 var app = express();
 app.use(morgan('combined'));
+var articleone = {
+    title:'Article one',
+    heading:'arc one',
+    date: 17 feb,
+    content:
+    <p>
+    lol
+    </p>
+};
+function createtemplate(data){
+var title=dfata.title;
+var date=data.date;
+var heading=data.heading;
+var content= data.content;
+
+var htmltemplate={<html>
+    <head>
+        <title>
+            ${title}
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+         <link href="/ui/style.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div>
+            <a href="/">home</a>
+        </div>
+        <hr/>
+        <h3>
+            <div>
+                ${date}
+            </div>
+            <div>
+                <p>
+                    ${content}
+                </p>
+            </div>
+        </h3>
+    </body>
+</html>
+;
+    returnn htmltemplate
+}
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 app.get('/article-one',function(req,res){
-    res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
+    res.send(createtemplate(articleone));
 });
 app.get('/article-two',function(req,res){
     res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
