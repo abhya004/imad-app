@@ -7,19 +7,19 @@ app.use(morgan('combined'));
 var articleone = {
     title:'Article one',
     heading:'arc one',
-    date: 17 feb,
+    date: '17 feb',
     content:
-    <p>
-    lol
-    </p>
+    `<p>
+    lol.
+    </p>`
 };
 function createtemplate(data){
-var title=dfata.title;
+var title=data.title;
 var date=data.date;
 var heading=data.heading;
 var content= data.content;
 
-var htmltemplate={<html>
+var htmltemplate=`<html>
     <head>
         <title>
             ${title}
@@ -43,9 +43,8 @@ var htmltemplate={<html>
             </div>
         </h3>
     </body>
-</html>
-;
-    returnn htmltemplate
+</html>`;
+    return htmltemplate;
 }
 
 app.get('/', function (req, res) {
