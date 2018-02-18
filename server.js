@@ -68,7 +68,7 @@ app.get('/', function (req, res) {
 });
 app.get('/:articlename',function(req,res){
     var articlename=req.params.articleName;
-    res.send(createtemplatearticles[articleName]);
+    res.send(createtemplate(articles[articleName]));
 });
 
 app.get('/ui/style.css', function (req, res) {
